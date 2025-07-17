@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gradle-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gradle-app
+  template:
+    metadata:
+      labels:
+        app: gradle-app
+    spec:
+      containers:
+      - name: gradle-app
+        image: your-dockerhub-username/gradle-app:latest
+        ports:
+        - containerPort: 8080
